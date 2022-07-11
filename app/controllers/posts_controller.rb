@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(Arel.sql("case id when 54 then 0 else 1 end"), "created_at DESC").limit(50)
+    @posts = Post.all.order(Arel.sql("case id when 1 then 0 else 1 end"), "created_at DESC").limit(50)
     @post = Post.new
   end
 
