@@ -13,3 +13,196 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&family=Roboto:wght@400;500;700&display=swap');
+ 
+ *{
+   margin: 0;
+   padding: 0;
+   font-family: 'Nunito', sans-serif;
+   box-sizing: border-box;
+ }
+
+ html,body { height:100%; }
+
+ :root {
+  --dark_blue: #5370f1;
+  --blue: #5C7AFF;
+  --light_blue: #4A8FE7;
+  --white: #f8f5f2;
+  --black: #191308;
+  --light_black: #322A26;
+  --padding_0: 0.25rem;
+  --padding_1: 0.5rem;
+  --padding_2: 1rem;
+  --padding_3: 1.5rem;
+  --padding_4: 2rem;
+}
+
+a{
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.navbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--blue);
+  padding: var(--padding_1);
+  padding-left: var(--padding_2);
+}
+
+.title{
+  color: var(--white);
+}
+
+.nav-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: auto;
+  margin: var(--padding_1);
+  margin-right: 0;
+}
+
+p.control{
+  width: auto;
+  margin-right: var(--padding_2);
+}
+
+.button{
+  padding: var(--padding_1);
+  cursor: pointer;
+  border-color: transparent;
+  background-color: var(--blue);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.is-inverted{
+  background-color: var(--white);
+  color: var(--blue);
+}
+
+.is-inverted:hover{
+  background-color: #f3ede6;
+}
+
+.is-black{
+  background-color: var(--light_black);
+  font-weight: 800;
+}
+
+.is-black:hover{
+  background-color: var(--black);
+}
+
+.fluid{
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > .post_body{
+  display: inline-block;
+  height: auto;
+  margin-top: var(--padding_2);
+  width: 30rem;
+}
+
+p {
+  width: 100%;
+  height: auto;
+  word-wrap: break-word;
+}
+.post{
+  margin-top: var(--padding_2);
+}
+
+textarea{
+  resize: none;
+  border-color: var(--black);
+  margin-top: 4rem;
+  padding: var(--padding_1);
+  margin-bottom: var(--padding_1);
+}
+
+input:focus, textarea:focus{
+  outline: none;
+}
+
+input:not([type="checkbox"]){
+  border-color: var(--black);
+  padding: var(--padding_1);
+  width: 100%;
+}
+
+.field, .actions{
+  margin-top: var(--padding_2);
+}
+
+form{
+  width: 25rem;
+}
+
+.flash{
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  z-index: 5;
+  padding: var(--padding_0);
+  animation-name: disapear;
+  animation-duration: 2000ms;
+  animation-fill-mode: forwards;
+}
+
+.notice{
+  background-color: rgb(28, 173, 28);
+}
+
+.alert{
+  background-color: rgb(241, 145, 0);
+}
+
+.invisible-button{
+  border-color:transparent;
+  background-color: transparent;
+  color: var(--black);
+  font-weight: 900;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: var(--padding_1);
+}
+.invisible-button:hover{
+  cursor: pointer;
+}
+
+form + a{
+  margin-top: var(--padding_1);
+}
+
+@keyframes disapear{
+  0%{
+    transform: translateY(0);
+  }
+  75%{
+    transform: translateY(0);
+  }
+  100%{
+    display: none;
+    transform: translateY(-2rem);
+  }
+}

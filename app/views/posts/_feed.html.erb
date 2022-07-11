@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <%= render 'posts/form' %>
+  <%else%>
+  <div style="margin-top:5rem;"></div>
+<%end%>
+<% @posts.each do | post | %>
+  <div class="container">
+    <div class="post_body">
+      <% if user_signed_in? %>
+        <strong><%=post.user.username%></strong><br />
+      <%else%>
+        <strong>Hidden</strong><br />
+      <%end%>
+      <p><%= post.body %></p>
+    </div>
+  </div>
+<%end%>

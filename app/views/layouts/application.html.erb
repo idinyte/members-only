@@ -8,9 +8,39 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
-
   <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title">MembersOnly</h1>
+        <% end %>
+      </div>
+      <div class="nav-buttons">
+        <% if user_signed_in? %>
+          <p class="control">
+            <%= link_to current_user.username, edit_user_registration_path, class: "button is-inverted" %>
+          </p>
+          <p>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: "delete" }, class:"button is-info" %>
+          </p>
+        <% else %>
+          <p class="control">
+            <%= link_to 'Log In', new_user_session_path, class: "button is-inverted" %>
+          </p>
+          <p class="control">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+          </p>
+        <% end %>
+      </div>
+    </nav>
+    <% if flash[:notice] %>
+      <p class="notice flash"><%= notice %></p>
+    <%end%>
+    <% if flash[:alert] %>
+      <p class="alert flash"><%= alert %></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>
